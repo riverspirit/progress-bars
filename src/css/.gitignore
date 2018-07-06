@@ -1,0 +1,4 @@
+# Compiled css files, ignore everything in this directory
+*.css
+# Except this file
+!.gitignore

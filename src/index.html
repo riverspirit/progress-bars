@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Progress Bars</title>
+
+  <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <!-- The compiled css is generated when `yarn dist` is run -->
+  <link rel="stylesheet" href="css/app.css">
+</head>
+
+<body>
+  <div id="app">
+    <nav class="navbar fixed-top top-nav">
+      <h1 class="navbar-brand app-title">Progress Bars</h1>
+    </nav>
+
+    <div class="container">
+      <div class="row">
+          <div class="col-md-4">
+            <progress-bar v-bind:value="bar" v-for="bar in bars"></progress-bar>
+          </div>
+          <div class="col-md-4">
+            <bar-selector v-bind:bars="bars" class="mb-3"></bar-selector>
+            <button-panel v-bind:buttons="buttons"></button-panel>
+          </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="../../node_modules/vue/dist/vue.min.js"></script>
+  <script src="./js/components/index.js"></script>
+  <script src="./js/components/progress-bar/progress-bar.js"></script>
+  <script src="./js/components/bar-selector/bar-selector.js"></script>
+  <script src="./js/components/button-panel/button-panel.js"></script>
+
+  <!-- Template for <progress-bar> component -->
+  <script type="text/x-template" id="progress-bar">
+    <div class="progress-bar-outer">
+      <div class="progress-bar-value">{{value.percentage}}%</div>
+      <div
+        class="progress-bar-fill"
+        v-bind:style="{width: value.percentage + '%'}"
+        v-bind:class="{'is-over-limit': value.percentage > 100}">
+      </div>
+    </div>
+  </script>
+
+  <!-- Template for <bar-selector> component -->
+  <script type="text/x-template" id="bar-selector">
+    <div class="bar-selector">
+      <select name="bar-selector" class="form-control" @change="selectProgressBar($event)">
+        <option v-bind:value="index" v-for="(bar, index) in bars">Progress #{{index + 1}}</option>
+      </select>
+    </div>
+  </script>
+
+  <!-- Template for <button-panel> component -->
+  <script type="text/x-template" id="button-panel">
+    <div class="btn-group" role="group">
+      <button
+        type="button"
+        v-bind:value="btnValue"
+        v-for="btnValue in buttons"
+        class="btn btn-light button-panel"
+        @click="updateProgress(btnValue)">
+        {{btnValue < 0 ? btnValue : '+' + btnValue}}
+      </button>
+    </div>
+  </script>
+
+</body>
+
+</html>

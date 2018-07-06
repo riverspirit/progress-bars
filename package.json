@@ -1,0 +1,29 @@
+{
+  "name": "progress-bars",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Saurabh",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "start": "yarn dist && http-server .",
+    "lint": "yarn eslint && yarn sass-lint",
+    "eslint": "./node_modules/.bin/eslint src/**/\\*.js",
+    "eslint-fix": "./node_modules/.bin/eslint src/**/\\*.js --fix",
+    "sass": "node-sass src/css/ -o src/css/",
+    "sass-lint": "sass-lint src/css/*.scss --verbose",
+    "dist": "yarn sass"
+  },
+  "dependencies": {
+    "bootstrap": "^4.1.1",
+    "eslint": "^5.0.1",
+    "eslint-config-airbnb-base": "^13.0.0",
+    "eslint-plugin-import": "^2.13.0",
+    "vue": "^2.5.16"
+  },
+  "devDependencies": {
+    "http-server": "^0.11.1",
+    "node-sass": "^4.9.0",
+    "sass-lint": "^1.12.1"
+  }
+}
