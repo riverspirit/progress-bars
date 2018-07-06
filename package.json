@@ -19,11 +19,11 @@
     "eslint": "^5.0.1",
     "eslint-config-airbnb-base": "^13.0.0",
     "eslint-plugin-import": "^2.13.0",
-    "vue": "^2.5.16"
-  },
-  "devDependencies": {
+    "vue": "^2.5.16",
     "http-server": "^0.11.1",
     "node-sass": "^4.9.0",
     "sass-lint": "^1.12.1"
+  },
+  "devDependencies": {
   }
 }
